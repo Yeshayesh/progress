@@ -1,180 +1,187 @@
-<!doctype html>
-<html lang="en" data-theme="dark">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Princess • Deren • Kaycie — Cool (profile galleries)</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Princess Yesha Abesamis - Resume (Cool)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0b1020; --panel:#0f1724; --muted:#9aa4b2; --glass: rgba(255,255,255,0.03);
-      --accent-p:#ff6fb5; --accent-d:#4aa3ff; --accent-k:#b38cff;
-      --radius:14px; --shadow: 0 12px 40px rgba(2,6,23,.6);
-      --nav-w:220px; --gap:18px; --t:.45s cubic-bezier(.2,.9,.2,1);
-      --focus: 3px solid rgba(255,255,255,.08);
-      --text:#e6eef8;
-    }
-    [data-theme="light"]{
-      --bg:#f6f8fb; --panel:#ffffff; --muted:#516070; --glass: rgba(0,0,0,0.03); --shadow: 0 10px 30px rgba(2,6,23,.06);
-      --text:#14202b;
+      --bgA: #e8f1ff;
+      --bgB: #ffffff;
+      --accent: #0056b3;
+      --muted: #516070;
+      --glass: rgba(255,255,255,0.7);
+      --card-shadow: 0 12px 36px rgba(3,18,54,0.12);
+      --radius: 14px;
+      --t-fast: 220ms cubic-bezier(.2,.9,.2,1);
+      --t: 420ms cubic-bezier(.2,.9,.2,1);
+      --focus: 3px solid rgba(0,86,179,.12);
     }
 
+    /* -------- Reset & base -------- */
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#1f2a37;background:linear-gradient(135deg,var(--bgA),var(--bgB));-webkit-font-smoothing:antialiased}
     a{color:inherit}
 
-    /* Root layout */
-    .root{display:flex;gap:var(--gap);min-height:100vh;padding:24px}
-    aside{width:var(--nav-w);padding:22px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:16px;border:1px solid rgba(255,255,255,0.03);box-shadow:var(--shadow)}
-    .logo{font-weight:800;letter-spacing:.6px;margin-bottom:16px}
-    nav{display:flex;flex-direction:column;gap:8px}
-    .nav-item{
-      display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;color:var(--muted);cursor:pointer;user-select:none;
-      transition: transform .18s ease, background .18s ease, color .18s ease;
-    }
-    .nav-item[aria-current="true"], .nav-item.active{ background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); color:var(--text) }
-    .nav-item:hover{ transform:translateX(6px) }
-    .nav-item:focus{ outline:none; box-shadow:var(--focus) }
+    /* -------- Header -------- */
+    header{display:flex;align-items:center;justify-content:space-between;padding:20px 36px;background:linear-gradient(90deg,var(--accent),#0074ff);color:white;border-bottom:1px solid rgba(255,255,255,.06);box-shadow:0 6px 26px rgba(0,0,0,.08);position:sticky;top:0;z-index:30}
+    header h2{margin:0;font-weight:700;letter-spacing:.5px}
+    nav a{margin-left:18px;color:rgba(255,255,255,.95);text-decoration:none;padding:8px 12px;border-radius:10px;transition:transform var(--t-fast),background var(--t-fast)}
+    nav a:hover{transform:translateY(-3px);background:rgba(255,255,255,.08)}
 
-    aside .small{margin-top:12px;color:var(--muted);font-size:13px}
-    .aside-actions{display:flex;gap:8px;margin-top:12px}
+    /* -------- Main layout -------- */
+    .container{max-width:980px;margin:36px auto;padding:0 18px}
+    main.card{background:linear-gradient(180deg,white, #fbfdff);border-radius:var(--radius);box-shadow:var(--card-shadow);overflow:hidden;display:grid;grid-template-columns:1fr;transition:transform var(--t),box-shadow var(--t)}
+    main.card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(3,18,54,0.14)}
 
-    /* Main */
-    main{flex:1;display:flex;flex-direction:column;gap:18px}
-    .header-row{display:flex;align-items:center;gap:12px}
-    .search{flex:1;max-width:520px;padding:10px 12px;border-radius:12px;background:var(--panel);border:1px solid rgba(255,255,255,0.03)}
-    .search input{border:0;background:transparent;color:var(--text);outline:0;width:100%}
-    .controls{display:flex;gap:8px}
-    .icon-btn{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 10px;border-radius:10px;cursor:pointer;color:var(--text)}
-    .icon-btn:focus{box-shadow:var(--focus);outline:none}
+    .hero{display:flex;gap:20px;padding:28px}
+    .left{flex:1}
+    .right{width:320px;padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(0,86,179,0.04),rgba(0,86,179,0.02));border:1px solid rgba(0,86,179,0.04);align-self:flex-start}
 
-    /* Hero */
-    .hero{display:flex;gap:16px;align-items:flex-start}
-    .hero-left{flex:1;padding:22px;border-radius:14px;background:linear-gradient(180deg, rgba(255,111,181,0.04), rgba(255,111,181,0.01));border:1px solid rgba(255,111,181,0.04);min-height:220px}
-    .hero-right{width:320px;padding:20px;border-radius:14px;background:var(--panel);border:1px solid rgba(255,255,255,0.02)}
+    .profile{display:flex;gap:16px;align-items:center}
+    .avatar{width:86px;height:86px;border-radius:16px;background:linear-gradient(135deg,#fff,#f0f6ff);display:grid;place-items:center;font-size:36px;border:1px solid rgba(0,0,0,0.04)}
+    .who h1{margin:0;font-size:20px}
+    .who p{margin:6px 0 0;color:var(--muted)}
 
-    .profile-box{display:flex;gap:14px;align-items:center}
-    .avatar{width:84px;height:84px;border-radius:12px;display:grid;place-items:center;font-size:34px;background:linear-gradient(45deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);color:var(--text)}
-    h2{margin:0;font-size:20px}
-    p.lead{margin:6px 0 0 0;color:var(--muted)}
+    /* -------- Info cards -------- */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .card-mini{padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(2,6,23,0.02),rgba(2,6,23,0.01));border:1px solid rgba(2,6,23,0.04);transition:transform var(--t),box-shadow var(--t)}
+    .card-mini:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(2,6,23,0.06)}
+    .card-mini h3{margin:0 0 8px 0;font-size:14px}
+    .card-mini p{margin:0;color:var(--muted);font-size:13px}
 
-    .tabs{display:flex;gap:8px;margin-top:12px}
-    .tab{padding:8px 12px;border-radius:999px;background:transparent;color:var(--muted);cursor:pointer;border:0}
-    .tab[aria-selected="true"]{background:rgba(255,255,255,0.03);color:var(--text)}
-    .tab:focus{box-shadow:var(--focus);outline:none}
+    /* -------- Quick notes (collapsible) -------- */
+    .quick{margin-top:18px}
+    .quick .summary{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px;border-radius:10px;background:linear-gradient(90deg,rgba(0,86,179,0.04),transparent);cursor:pointer}
+    .quick .summary h3{margin:0;font-size:15px}
+    .chev{transition:transform var(--t)}
+    .quick .body{overflow:hidden;max-height:0;transition:max-height var(--t),opacity var(--t);opacity:0}
+    .quick.open .chev{transform:rotate(90deg)}
+    .quick.open .body{max-height:420px;opacity:1;padding:12px 12px 18px 12px}
 
-    .actions-row{margin-top:16px;display:flex;gap:12px}
-    .btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
-    .btn.primary{background:linear-gradient(90deg,var(--accent-p), #ff9ccf);color:#081226}
-    .btn.secondary{background:linear-gradient(90deg,var(--accent-d), #7cc1ff);color:#05122a}
+    /* -------- Gallery -------- */
+    .gallery{padding:18px;border-top:1px solid rgba(0,0,0,0.03);background:linear-gradient(180deg,rgba(250,252,255,1),transparent)}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .thumb{border-radius:10px;overflow:hidden;border:1px solid rgba(2,6,23,0.04);cursor:pointer;background:#fff}
+    .thumb img{display:block;width:100%;height:150px;object-fit:cover;transition:transform var(--t)}
+    .thumb:hover img{transform:scale(1.06)}
 
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;min-height:110px;border:1px solid rgba(255,255,255,0.03);transition:transform var(--t),box-shadow var(--t)}
-    .card:focus{outline:none;box-shadow:var(--focus)}
-    .card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(2,6,23,0.5)}
+    /* -------- Right column quick actions -------- */
+    .muted{color:var(--muted);font-size:13px}
+    .right .btn{display:block;width:100%;padding:10px;border-radius:10px;border:0;background:linear-gradient(90deg,#fff,#f1f7ff);margin-bottom:10px;cursor:pointer}
 
-    /* Gallery */
-    .gallery-title{color:var(--muted);font-size:13px;margin-bottom:8px}
-    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .thumb{border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.04);background:var(--panel);cursor:pointer}
-    .thumb img{width:100%;height:auto;display:block}
-    .thumb:focus{outline:none;box-shadow:var(--focus)}
+    /* -------- Footer -------- */
+    footer{padding:18px 28px;background:linear-gradient(90deg,#fbfdff,#f7fcff);text-align:right;color:var(--muted);font-size:13px}
 
-    /* Lightbox */
-    .lightbox{position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,0.7);z-index:9999}
-    .lightbox.open{display:grid}
-    .lightbox .frame{max-width:92vw;max-height:90vh;position:relative}
-    .lightbox img{width:100%;height:auto;border-radius:12px}
-    .lightbox button{position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.5);color:#fff;border:0;padding:8px 10px;border-radius:8px;cursor:pointer}
-    .lightbox button:focus{box-shadow:var(--focus)}
+    /* -------- Utilities & responsive -------- */
+    .fade-up{opacity:0;transform:translateY(10px);animation:fadeUp .6s ease forwards}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
 
-    /* responsive */
-    @media (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}.gallery-grid{grid-template-columns:repeat(2,1fr)}.hero-right{display:none}aside{display:none}}
-    @media (max-width:700px){.grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr}.hero{flex-direction:column}}
+    @media (max-width:880px){.cards{grid-template-columns:repeat(2,1fr)}.gallery-grid{grid-template-columns:repeat(2,1fr)}.right{display:none}.hero{flex-direction:column}}
+    @media (max-width:520px){.cards{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr}}
 
-    /* view transition fallback (subtle) */
-    .profile-fade-enter{opacity:0;transform:translateY(8px)}
-    .profile-fade-enter-active{transition:opacity .36s ease, transform .36s ease;opacity:1;transform:none}
   </style>
 </head>
 <body>
-  <div class="root" id="root">
-    <aside aria-label="Primary navigation">
-      <div class="logo">MINI • PROFILES</div>
+  <header>
+    <h2>Princess Yesha Abesamis</h2>
+    <nav>
+      <a href="princess.html">Princess</a>
+      <a href="deren.html">Deren</a>
+      <a href="kaycie.html">Kaycie</a>
+    </nav>
+  </header>
 
-      <nav id="nav" aria-label="Profiles navigation">
-        <div class="nav-item" role="button" tabindex="0" data-index="0" aria-current="true">👑 Princess</div>
-        <div class="nav-item" role="button" tabindex="0" data-index="1">🚀 Deren</div>
-        <div class="nav-item" role="button" tabindex="0" data-index="2">🌸 Kaycie</div>
-
-        <div style="height:12px"></div>
-        <div class="small">Explore</div>
-        <div class="nav-item" role="button" tabindex="0" data-snap="gallery">🖼 Gallery</div>
-      </nav>
-
-      <div style="flex:1"></div>
-
-      <div class="small">Settings</div>
-      <div class="aside-actions" aria-hidden="false">
-        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">🌓</button>
-        <button class="icon-btn" id="kbarBtn" aria-label="Open command">⌘K</button>
-      </div>
-    </aside>
-
-    <main>
-      <div class="header-row" role="toolbar" aria-label="Header controls">
-        <div class="search" role="search" aria-label="Search profiles">
-          <input id="search" placeholder="Search profiles, projects..." aria-label="Search" />
-        </div>
-
-        <div class="controls" aria-hidden="false">
-          <button class="icon-btn" id="prevBtn" aria-label="Previous profile">◀</button>
-          <button class="icon-btn" id="nextBtn" aria-label="Next profile">▶</button>
-        </div>
-      </div>
-
-      <section class="hero" aria-labelledby="heroName">
-        <div class="hero-left" id="profileArea">
-          <div class="profile-box">
-            <div class="avatar" id="heroAvatar" aria-hidden="true">👑</div>
-            <div>
-              <h2 id="heroName">Princess</h2>
-              <p class="lead" id="heroLead">Bubbly energy, playlists for every mood.</p>
-
-              <div class="tabs" id="heroTabs" role="tablist" aria-label="Profile sections">
-                <button class="tab" role="tab" aria-selected="true" data-tab="about">About</button>
-                <button class="tab" role="tab" aria-selected="false" data-tab="highlights">Highlights</button>
-                <button class="tab" role="tab" aria-selected="false" data-tab="now">Now</button>
-              </div>
+  <div class="container">
+    <main class="card" role="main">
+      <section class="hero">
+        <div class="left">
+          <div class="profile">
+            <div class="avatar">👑</div>
+            <div class="who">
+              <h1>Princess Yesha Abesamis</h1>
+              <p class="muted">Grade 7 • Student • Designer in training</p>
             </div>
           </div>
 
-          <div class="actions-row">
-            <button class="btn primary" id="actionPrimary" aria-label="Send message">Message</button>
-            <button class="btn secondary" id="actionSecondary" aria-label="Follow profile">Follow</button>
+          <div class="cards fade-up" style="animation-delay:.08s">
+            <div class="card-mini">
+              <h3>Summary</h3>
+              <p>Motivated student with a passion for technology and design. Known for attention to detail and creativity.</p>
+            </div>
+            <div class="card-mini">
+              <h3>Skills</h3>
+              <p>HTML · CSS · Basic JS · Photo editing · Layout design</p>
+            </div>
+            <div class="card-mini">
+              <h3>Goals</h3>
+              <p>Learn more JavaScript, build polished portfolio pieces, and collaborate on school projects.</p>
+            </div>
           </div>
 
-          <div class="grid" id="infoCards" aria-live="polite">
-            <div class="card" id="card1" tabindex="0" aria-label="Detail card 1"></div>
-            <div class="card" id="card2" tabindex="0" aria-label="Detail card 2"></div>
-            <div class="card" id="card3" tabindex="0" aria-label="Detail card 3"></div>
+          <div class="quick" id="quickNotes">
+            <div class="summary" id="quickToggle" role="button" tabindex="0" aria-expanded="false">
+              <h3>Quick Notes</h3>
+              <div class="chev">▶</div>
+            </div>
+            <div class="body" id="quickBody">
+              <ul>
+                <li>Favorite tools: Canva, Figma, and VS Code</li>
+                <li>Hobbies: digital art, playlist curation, and organizing events</li>
+                <li>Achievements: Class event lead, community volunteer award</li>
+                <li>Study tip: Break tasks into 25-minute sessions with short breaks</li>
+              </ul>
+            </div>
           </div>
+
+          <div class="cards" style="margin-top:18px">
+            <div class="card-mini">
+              <h3>Experience</h3>
+              <p>Class Officer – Organized events and led student initiatives</p>
+            </div>
+            <div class="card-mini">
+              <h3>Volunteer</h3>
+              <p>Community clean-up and outreach programs</p>
+            </div>
+            <div class="card-mini">
+              <h3>Contact</h3>
+              <p>Email: princess@example.com</p>
+            </div>
+          </div>
+
         </div>
 
-        <aside class="hero-right" aria-label="Quick actions">
+        <aside class="right">
           <div class="muted">Quick actions</div>
-          <div style="margin-top:12px;display:flex;gap:10px;flex-direction:column">
-            <button class="btn" id="gotoDeren" aria-label="Go to Deren">Go to Deren</button>
-            <button class="btn" id="gotoKaycie" aria-label="Go to Kaycie">Go to Kaycie</button>
-            <button class="btn" id="openGallery" aria-label="Open gallery">Open Gallery</button>
+          <button class="btn" id="gotoDeren">Go to Deren</button>
+          <button class="btn" id="gotoKaycie">Go to Kaycie</button>
+          <button class="btn" id="openGallery">Open Gallery</button>
+
+          <div style="margin-top:18px">
+            <h4 style="margin:0 0 8px 0">Mini timeline</h4>
+            <div style="font-size:13px;color:var(--muted)">
+              <div style="margin-bottom:8px"><strong>2024</strong> — Class Officer</div>
+              <div style="margin-bottom:8px"><strong>2023</strong> — Volunteer projects</div>
+            </div>
           </div>
         </aside>
       </section>
 
-      <section id="gallerySection" aria-label="Profile gallery">
-        <div class="gallery-title">Gallery</div>
-        <div class="gallery-grid" id="galleryGrid" role="list" aria-live="polite"></div>
+      <section class="gallery" aria-label="Gallery">
+        <div class="gallery-grid" id="galleryGrid">
+          <div class="thumb"><img src="https://picsum.photos/seed/1/800/520" alt="photo 1"></div>
+          <div class="thumb"><img src="https://picsum.photos/seed/2/800/520" alt="photo 2"></div>
+          <div class="thumb"><img src="https://picsum.photos/seed/3/800/520" alt="photo 3"></div>
+          <div class="thumb"><img src="https://picsum.photos/seed/4/800/520" alt="photo 4"></div>
+          <div class="thumb"><img src="https://picsum.photos/seed/5/800/520" alt="photo 5"></div>
+          <div class="thumb"><img src="https://picsum.photos/seed/6/800/520" alt="photo 6"></div>
+        </div>
       </section>
+
+      <footer>
+        © <span id="year"></span> Princess Yesha Abesamis — All rights reserved
+      </footer>
     </main>
   </div>
 
@@ -187,252 +194,43 @@
   </div>
 
   <script>
-    /* ----------------------------
-       Data: profiles + per-profile galleries
-       ---------------------------- */
-    const profiles = [
-      {
-        name: 'Princess',
-        lead: 'Bubbly energy, playlists for every mood.',
-        avatar: '👑',
-        accent: '--accent-p',
-        images: [
-          'https://picsum.photos/seed/p1/900/600',
-          'https://picsum.photos/seed/p2/900/600',
-          'https://picsum.photos/seed/p3/900/600'
-        ]
-      },
-      {
-        name: 'Deren',
-        lead: 'Tech-curious, music on loop, always leveling up.',
-        avatar: '🚀',
-        accent: '--accent-d',
-        images: [
-          'https://picsum.photos/seed/d1/900/600',
-          'https://picsum.photos/seed/d2/900/600',
-          'https://picsum.photos/seed/d3/900/600'
-        ]
-      },
-      {
-        name: 'Kaycie',
-        lead: 'Soft aesthetics, kind energy, sunsets in the camera roll.',
-        avatar: '🌸',
-        accent: '--accent-k',
-        images: [
-          'https://picsum.photos/seed/k1/900/600',
-          'https://picsum.photos/seed/k2/900/600',
-          'https://picsum.photos/seed/k3/900/600'
-        ]
-      }
-    ];
+    // small scripts: interactivity, collapse, gallery lightbox and nav
+    const year = document.getElementById('year'); year.textContent = new Date().getFullYear();
 
-    /* ----------------------------
-       Elements
-       ---------------------------- */
-    const navItems = Array.from(document.querySelectorAll('.nav-item[data-index]'));
-    const heroName = document.getElementById('heroName');
-    const heroLead = document.getElementById('heroLead');
-    const heroAvatar = document.getElementById('heroAvatar');
-    const heroTabs = document.getElementById('heroTabs');
-    const card1 = document.getElementById('card1');
-    const card2 = document.getElementById('card2');
-    const card3 = document.getElementById('card3');
+    const quick = document.getElementById('quickNotes');
+    const quickToggle = document.getElementById('quickToggle');
+    const quickBody = document.getElementById('quickBody');
+    function toggleQuick(force){
+      const open = quick.classList.toggle('open', force===undefined? !quick.classList.contains('open') : force);
+      quickToggle.setAttribute('aria-expanded', open);
+    }
+    quickToggle.addEventListener('click', ()=> toggleQuick());
+    quickToggle.addEventListener('keydown', e=> { if(e.key==='Enter' || e.key===' ') toggleQuick(); });
+
+    // gallery lightbox
     const galleryGrid = document.getElementById('galleryGrid');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxClose = document.getElementById('lightboxClose');
-
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const kbarBtn = document.getElementById('kbarBtn');
-    const themeBtn = document.getElementById('themeBtn');
-    const openGallery = document.getElementById('openGallery');
-    const gotoDeren = document.getElementById('gotoDeren');
-    const gotoKaycie = document.getElementById('gotoKaycie');
-
-    let current = 0; // active profile index
-
-    /* ----------------------------
-       Accessibility helper: make divs respond to Enter/Space
-       ---------------------------- */
-    function enableKeyboardClicks(node){
-      node.addEventListener('keydown', (e)=>{
-        if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); node.click(); }
-      });
-    }
-
-    /* ----------------------------
-       Render gallery for profile index
-       ---------------------------- */
-    function renderGallery(index){
-      galleryGrid.innerHTML = '';
-      const imgs = profiles[index].images;
-      imgs.forEach((src, i) => {
-        const item = document.createElement('div');
-        item.className = 'thumb';
-        item.setAttribute('role','listitem');
-        item.setAttribute('tabindex','0');
-        item.setAttribute('aria-label', `Open image ${i+1} of ${profiles[index].name}`);
-
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = `${profiles[index].name} image ${i+1}`;
-        item.appendChild(img);
-
-        // click and keyboard open
-        item.addEventListener('click', ()=> openLightbox(src, img.alt));
-        enableKeyboardClicks(item);
-
-        galleryGrid.appendChild(item);
-      });
-    }
-
-    /* ----------------------------
-       Lightbox
-       ---------------------------- */
-    function openLightbox(src, alt){
-      lightbox.classList.add('open');
-      lightboxImg.src = src;
-      lightboxImg.alt = alt;
-      lightboxClose.focus();
-      // trap basic focus (simple)
-      document.body.style.overflow = 'hidden';
-    }
-    function closeLightbox(){
-      lightbox.classList.remove('open');
-      lightboxImg.src = '';
-      document.body.style.overflow = '';
-    }
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
-
-    /* ----------------------------
-       Activate profile (with View Transition API fallback)
-       ---------------------------- */
-    function applyProfile(index){
-      const p = profiles[index];
-      // update DOM content
-      heroName.textContent = p.name;
-      heroLead.textContent = p.lead;
-      heroAvatar.textContent = p.avatar;
-      // cards (simple content)
-      card1.textContent = `${p.name} — quick note`;
-      card2.textContent = `${p.name} — detail`;
-      card3.textContent = `${p.name} — link`;
-      // gallery
-      renderGallery(index);
-      // update nav items states
-      navItems.forEach((n, i) => {
-        const is = i === index;
-        n.setAttribute('aria-current', is ? 'true' : 'false');
-        n.classList.toggle('active', is);
-      });
-      // update accent (CSS variable used by buttons if you'd like)
-      const accentValue = getComputedStyle(document.documentElement).getPropertyValue(p.accent).trim();
-      if (accentValue) document.documentElement.style.setProperty('--accent', accentValue);
-    }
-
-    function activate(index, opts = {}){
-      index = Math.max(0, Math.min(profiles.length - 1, index));
-      if (index === current && !opts.force) return;
-      const perform = () => { applyProfile(index); current = index; };
-      // prefer View Transition API where available
-      if (typeof document.startViewTransition === 'function' && !opts.noVT){
-        document.startViewTransition(perform);
-      } else {
-        // fallback: small fade
-        const container = document.getElementById('profileArea');
-        container.classList.add('profile-fade-enter');
-        setTimeout(()=> {
-          perform();
-          container.classList.add('profile-fade-enter-active');
-          setTimeout(()=> container.classList.remove('profile-fade-enter','profile-fade-enter-active'), 420);
-        }, 10);
-      }
-    }
-
-    /* ----------------------------
-       Wire nav and keyboard
-       ---------------------------- */
-    navItems.forEach((n, i) => {
-      n.addEventListener('click', () => activate(i));
-      enableKeyboardClicks(n);
+    galleryGrid.addEventListener('click', (e)=>{
+      const thumb = e.target.closest('.thumb'); if(!thumb) return;
+      const img = thumb.querySelector('img'); openLightbox(img.src, img.alt);
     });
+    galleryGrid.querySelectorAll('.thumb').forEach(t=> t.setAttribute('tabindex', '0'));
+    galleryGrid.querySelectorAll('.thumb').forEach(t=> t.addEventListener('keydown', e=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); t.click(); } }));
 
-    /* ----------------------------
-       Tabs (accessible)
-       ---------------------------- */
-    heroTabs.addEventListener('click', (e) => {
-      const t = e.target.closest('[role="tab"]');
-      if (!t) return;
-      setActiveTab(t.dataset.tab);
-    });
-    heroTabs.querySelectorAll('[role="tab"]').forEach(t => enableKeyboardClicks(t));
+    function openLightbox(src, alt){ lightbox.classList.add('open'); lightboxImg.src = src; lightboxImg.alt = alt; document.body.style.overflow='hidden'; lightboxClose.focus(); }
+    function closeLightbox(){ lightbox.classList.remove('open'); lightboxImg.src=''; document.body.style.overflow=''; }
+    lightboxClose.addEventListener('click', closeLightbox); lightbox.addEventListener('click', e=>{ if(e.target===lightbox) closeLightbox(); });
+    window.addEventListener('keydown', e=>{ if(e.key==='Escape') closeLightbox(); });
 
-    function setActiveTab(name){
-      heroTabs.querySelectorAll('[role="tab"]').forEach(t => t.setAttribute('aria-selected', t.dataset.tab === name ? 'true' : 'false'));
-      card1.textContent = `${name} • example 1`;
-      card2.textContent = `${name} • example 2`;
-      card3.textContent = `${name} • example 3`;
-    }
+    // simple nav buttons
+    document.getElementById('gotoDeren').addEventListener('click', ()=> alert('Go to Deren — placeholder'));
+    document.getElementById('gotoKaycie').addEventListener('click', ()=> alert('Go to Kaycie — placeholder'));
+    document.getElementById('openGallery').addEventListener('click', ()=> document.querySelector('.gallery').scrollIntoView({behavior:'smooth'}));
 
-    /* ----------------------------
-       Primary / quick actions
-       ---------------------------- */
-    document.getElementById('actionPrimary').addEventListener('click', ()=> alert('Message sent ✉️'));
-    document.getElementById('actionSecondary').addEventListener('click', ()=> alert('Followed ✅'));
-    gotoDeren.addEventListener('click', ()=> activate(1));
-    gotoKaycie.addEventListener('click', ()=> activate(2));
-    openGallery.addEventListener('click', ()=> document.getElementById('gallerySection').scrollIntoView({behavior:'smooth'}));
-
-    /* ----------------------------
-       Prev / Next (wrap-around)
-       ---------------------------- */
-    prevBtn.addEventListener('click', ()=> activate((current - 1 + profiles.length) % profiles.length));
-    nextBtn.addEventListener('click', ()=> activate((current + 1) % profiles.length));
-
-    /* ----------------------------
-       Command palette (simple prompt)
-       ---------------------------- */
-    kbarBtn.addEventListener('click', ()=>{
-      const q = prompt('Jump to (princess, deren, kaycie, gallery)');
-      if(!q) return;
-      const key = q.toLowerCase();
-      if (key.includes('prin')) activate(0);
-      else if (key.includes('der')) activate(1);
-      else if (key.includes('kay')) activate(2);
-      else if (key.includes('gal')) document.getElementById('gallerySection').scrollIntoView({behavior:'smooth'});
-    });
-
-    /* ----------------------------
-       Theme toggle: cycle auto -> light -> dark
-       ---------------------------- */
-    themeBtn.addEventListener('click', ()=>{
-      const curr = document.documentElement.getAttribute('data-theme') || 'auto';
-      const next = curr === 'auto' ? 'light' : curr === 'light' ? 'dark' : 'auto';
-      document.documentElement.setAttribute('data-theme', next);
-    });
-
-    /* ----------------------------
-       Search (Enter to jump)
-       ---------------------------- */
-    document.getElementById('search').addEventListener('keydown', (e)=>{
-      if (e.key === 'Enter'){
-        const q = e.target.value.toLowerCase().trim();
-        const idx = profiles.findIndex(p => p.name.toLowerCase().includes(q));
-        if (idx >= 0) activate(idx);
-        else alert('No matching profile found');
-      }
-    });
-
-    /* ----------------------------
-       Init
-       ---------------------------- */
-    activate(0);
-
-    // expose for debug
-    window.__miniSite = { activate, profiles };
+    // small accessible helpers
+    document.querySelectorAll('[role="button"]').forEach(btn=> btn.addEventListener('keydown', e=>{ if((e.key==='Enter' || e.key===' ') && document.activeElement===btn){ e.preventDefault(); btn.click(); }}));
   </script>
 </body>
 </html>
